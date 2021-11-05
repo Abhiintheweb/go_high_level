@@ -1,0 +1,38 @@
+{
+  "name": "postbode",
+  "version": "1.0.0",
+  "description": "Notification Engine.",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test",
+    "build": "babel server.js --out-dir build",
+    "dev-start": "babel-watch build/server.js",
+    "tsc": "tsc"
+  },
+  "keywords": [
+    "notification",
+    "pns",
+    "sms",
+    "email"
+  ],
+  "author": "Abhishek Singh",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.16.1",
+    "@types/request": "^2.48.1",
+    "express": "^4.16.4",
+    "moment": "^2.24.0",
+    "request": "^2.88.0",
+    "typescript": "^3.3.3333",
+    "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.5",
+    "babel-preset-env": "^1.7.0",
+    "babel-watch": "^7.0.0"
+  }
+}
