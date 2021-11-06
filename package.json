@@ -1,13 +1,17 @@
 {
-  "name": "postbode",
+  "name": "gohigh",
   "version": "1.0.0",
   "description": "Notification Engine.",
   "main": "server.js",
+  
   "scripts": {
     "test": "npm test",
-    "build": "babel server.js --out-dir build",
+    "build": "tsc --build",
     "dev-start": "babel-watch build/server.js",
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "typeorm": "tsc -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config ./app/db/index.ts",
+    "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
+    "typeorm:migration:run": "npm run typeorm -- migration:run"
   },
   "keywords": [
     "notification",
@@ -22,13 +26,16 @@
     "@types/request": "^2.48.1",
     "express": "^4.16.4",
     "moment": "^2.24.0",
+    "mysql": "^2.18.1",
     "request": "^2.88.0",
+    "typeorm": "^0.2.38",
     "typescript": "^3.3.3333",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
+    "@types/node": "^16.11.6",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.0.5",
