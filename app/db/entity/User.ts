@@ -2,19 +2,28 @@
 
 import {Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
 
-@Entity('user')
+@Entity('users')
 export class User {
 
     @PrimaryGeneratedColumn()
     "id": number;
 
-    @Column()
-    "firstName": string;
+    @Column({name:'name'})
+    "name": string;
 
-    @Column()
-    "lastName": string;
+    @Column({name:'date_of_birth'})
+    "dateOfBirth": Date;
 
-    @Column()
-    "age": number;
+    @Column({name:'is_active'})
+    "isActive": boolean;
+
+    @Column({name:'password'})
+    "password": string;
+
+    @Column({name:'created_at'})
+    "createdAt": Date;
+
+    @Column({name:'updated_at' })
+    "updatedAt": Date;
 
 }

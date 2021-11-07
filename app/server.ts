@@ -11,7 +11,8 @@ createConnection({
     password: "er0s1ntl",
     database: "go_high",
     entities: [
-      __dirname+'/db/entity/*{.ts,.js}'
+      __dirname+'/db/entity/Wallet.js',
+      __dirname+'/db/entity/User.js'
       ],
     synchronize: true,
 }).then(connection => {

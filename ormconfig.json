@@ -21,6 +21,6 @@
       "migrationsDir": "app/db/migration",
       "subscribersDir": "app/db/subscriber"
    },
-   "migrationsTableName": "custom_migration_table",
+   "migrationsTableName": "custom_migration_table"
   
 }
