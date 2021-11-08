@@ -1,6 +1,7 @@
 import {Request, Response, NextFunction} from "express";
 import { IndexController } from "../controllers/TestController";
 import { WalletController } from "../controllers/WalletController";
+import { WalletTransactionController } from "../controllers/WalletTransactionController";
 
 
 
@@ -8,6 +9,7 @@ export class Routes {
     
     public IndexController: IndexController = new IndexController() 
     public WalletController: WalletController = new WalletController()
+    public WalletTransactionController: WalletTransactionController = new WalletTransactionController()
     
     public routes(app): void {   
         
@@ -20,6 +22,9 @@ export class Routes {
 
         app.route('/v1/wallet-setup')
         .post(this.WalletController.Post)
+
+        app.route('/v1/wallet-transaction')
+        .post(this.WalletTransactionController.Post)
         
 
     }
