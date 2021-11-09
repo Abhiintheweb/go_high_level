@@ -12,7 +12,8 @@ createConnection({
     database: "go_high",
     entities: [
       __dirname+'/db/entity/Wallet.js',
-      __dirname+'/db/entity/User.js'
+      __dirname+'/db/entity/User.js',
+      __dirname+'/db/entity/WalletTransaction.js'
       ],
     synchronize: true,
 }).then(connection => {

@@ -10,11 +10,8 @@ export class WalletTransactionController{
     public async Post(req:Request,res:Response){
         try {
             let wallet_trasaction = await walletTransction.walletTransction(req.body)
-            if (!wallet_trasaction){
-                res.send({"response":"Trasaction "})
-            }
-            console.log("wallet_trasaction",wallet_trasaction)
-            // res.send({"response":"Trasaction Sucessfull"})
+            
+            res.send({"response":wallet_trasaction})
 
         } catch (error) {
             console.log(error);

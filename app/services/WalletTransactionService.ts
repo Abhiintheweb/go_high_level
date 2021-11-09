@@ -1,5 +1,5 @@
 
-import { getConnection, getRepository } from "typeorm";
+import { getConnection, getManager, getRepository } from "typeorm";
 import {WalletTransaction} from "../db/entity/WalletTransaction";
 import {IWalletTransaction} from "../interfaces/walletTrasaction";
 import {WalletError} from '../errors/WalletErrors'
@@ -13,46 +13,44 @@ class WalletTransactionService{
     }
 
     public async getWalletById(walletId:number, isActive:boolean){
-        var  x = await getRepository(Wallet).findOne({id:walletId, isActive:isActive})
-        console.log(x,"))))")
-        return x
+        return await getRepository(Wallet).findOne({id:walletId, isActive:isActive})
     }
 
     private async walletTransaction(wallet:any, walletTras:any){
-        console.log("&&&&&",wallet,walletTras)
+        
         const connection =  getConnection();
         const queryRunner =  connection.createQueryRunner();
 
         try {
+            await queryRunner.connect()
             await queryRunner.startTransaction();
-            
-            // execute some operations on this transaction:
-            let wall = await queryRunner.manager.save(wallet);
-            let wall_tras = await queryRunner.manager.save(walletTras);
-            console.log(wall, wall_tras,"88888888")
-            // commit transaction now:
+            await queryRunner.manager.save(wallet);
+            await queryRunner.manager.save(walletTras);
             await queryRunner.commitTransaction();
-            return true
         } catch (err) {
             // since we have errors let's rollback changes we made
             await queryRunner.rollbackTransaction();
+            throw new WalletError(err.message, 404)
         } finally {
             // you need to release query runner which is manually created:
             await queryRunner.release();
+            return true
         }
-        // return true
+        
     }
 
     
     public async walletTransction(trascationData:IWalletTransaction){
-        var walletData = await this.getWalletById(trascationData.walletId, true)
+        let walletData = await this.getWalletById(trascationData.walletId, true)
         if (! walletData){
             throw new WalletError("Wallet doesnot exist!!.", 404)
         }
-        var {walletData, walletTras} = walletTrasaction(trascationData, walletData)
-        let w_trasaction = await this.walletTransaction(walletData, walletTras)
+        var w_tra = walletTrasaction(trascationData, walletData)
+        var walletDataObj = w_tra[0]
+        var walletTrasObj = w_tra[1]
+        let w_trasaction =  await this.walletTransaction(walletDataObj, walletTrasObj)
 
-        return w_trasaction
+        return true 
     }
     
 }

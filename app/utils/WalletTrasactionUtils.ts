@@ -10,6 +10,7 @@ export const walletTrasaction = (walletTrasctionData:IWalletTransaction, walletD
     walletTras.walletId = walletTrasctionData.walletId
     walletTras.amount = walletTrasctionData.amount
     walletTras.transactionType = walletTrasctionData.transactionType
+    walletTras.useId = walletData.useId
     
     switch(walletTrasctionData.transactionType){
         case 'DEBIT':
@@ -28,5 +29,5 @@ export const walletTrasaction = (walletTrasctionData:IWalletTransaction, walletD
             throw new WalletError('Transaction must be a credit or debit', 400)
 
     }
-    return {walletData, walletTras}
+    return [walletData, walletTras]
 }
