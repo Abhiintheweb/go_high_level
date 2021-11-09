@@ -14,8 +14,6 @@ class WalletService{
         wallet.useId = 1
         wallet.isActive= true
         wallet.totalAmount= 10
-        wallet.createdAt = new Date()
-        wallet.updatedAt = new Date()
         return await getRepository(Wallet).save(wallet)
         
     }

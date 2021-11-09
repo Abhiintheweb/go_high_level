@@ -1,4 +1,4 @@
-import {Entity, PrimaryGeneratedColumn, Column} from 'typeorm';
+import {Entity, PrimaryGeneratedColumn, Column, UpdateDateColumn, CreateDateColumn} from 'typeorm';
 
 @Entity('wallet_transaction')
 export class WalletTransaction {
@@ -21,10 +21,10 @@ export class WalletTransaction {
     @Column({name:'transaction_type'})
     "transactionType": string;
 
-    @Column({name:'created_at'})
-    "createdAt": Date;
+    @CreateDateColumn({name:'created_at'})
+    "createdAt"?: Date;
 
-    @Column({name:'updated_at'})
-    "updatedAt": Date;
+    @UpdateDateColumn({name:'updated_at'})
+    "updatedAt"?: Date;
 
 }
