@@ -11,12 +11,12 @@ export class WalletTransactionController{
         try {
             let wallet_trasaction = await walletTransction.walletTransction(req.body)
             
-            res.send({"response":wallet_trasaction})
+            res.json({"response":wallet_trasaction, "message":"Transaction was successful"})
 
         } catch (error) {
             console.log(error);
             
-            res.status(error.status_code|| 500).send({"error":error.message})
+            res.json(error.status_code|| 500).send({"error":error.message})
         }
         
     }
@@ -24,7 +24,7 @@ export class WalletTransactionController{
     public async Get(req:Request,res:Response){
         var wallet_id = req.query.wallet_id
         let wallet_trasaction = await walletTransction.allWalletTransactions(wallet_id)
-        res.send({"response":wallet_trasaction})
+        res.json({"response":wallet_trasaction})
 
     }
 }

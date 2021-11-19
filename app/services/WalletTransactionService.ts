@@ -56,7 +56,7 @@ class WalletTransactionService{
         var walletDataObj = w_tra[0]
         var walletTrasObj = w_tra[1]
         let w_trasaction =  await this.walletTransaction(walletDataObj, walletTrasObj)
-        return true 
+        return w_trasaction 
     }
 
     public async allWalletTransactions(wallateID ){

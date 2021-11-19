@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Notification Engine.",
   "main": "server.js",
-  
   "scripts": {
     "test": "npm test",
     "build": "tsc --build",
@@ -27,6 +26,7 @@
     "express": "^4.16.4",
     "moment": "^2.24.0",
     "mysql": "^2.18.1",
+    "package.json": "^2.0.1",
     "request": "^2.88.0",
     "typeorm": "^0.2.38",
     "typescript": "^3.3.3333",

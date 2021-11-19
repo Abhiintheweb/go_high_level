@@ -20,7 +20,7 @@ export const walletTrasaction = (walletTrasctionData:IWalletTransaction, walletD
             walletData.totalAmount -= walletTrasctionData.amount 
             break;
         case 'CREDIT':
-            if (walletTrasctionData.amount > 0){
+            if (walletTrasctionData.amount < 0){
                 throw new WalletError('Amount must be greter than zero.', 400)
             }
             walletData.totalAmount += walletTrasctionData.amount 
