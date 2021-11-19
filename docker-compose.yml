@@ -8,9 +8,9 @@ services:
   ports:
       - "3103:3306" 
   environment:
-      - MYSQL_ROOT_PASSWORD=pass@123
+      - MYSQL_ROOT_PASSWORD=er0s1ntl
       - MYSQL_DATABASE=go_high
       - MYSQL_USER=root
-      - MYSQL_PASSWORD=pass@123
+      - MYSQL_PASSWORD=er0s1ntl
 volumes:
   mysql
