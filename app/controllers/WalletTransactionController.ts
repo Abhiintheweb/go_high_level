@@ -1,9 +1,7 @@
 
 
 import { Request, Response } from 'express';
-
-
-import walletTransction from '../services/WalletTransactionService';
+import walletTransction from '../../app/services/WalletTransactionService'
 
 export class WalletTransactionController{
     
@@ -11,7 +9,7 @@ export class WalletTransactionController{
         try {
             let wallet_trasaction = await walletTransction.walletTransction(req.body)
             
-            res.json({"response":wallet_trasaction, "message":"Transaction was successful"})
+            res.json({"response":wallet_trasaction, "message":"Transaction was sucessful"})
 
         } catch (error) {
             console.log(error);
