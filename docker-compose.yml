@@ -8,7 +8,7 @@ services:
       # So you don't have to use root, but you can if you like
       MYSQL_USER: 'root'
       # You can use whatever password you like
-      MYSQL_PASSWORD: 'er0s1ntl'
+      MYSQL_PASSWORD: 'er0s1ntl1'
       # Password for root access
       MYSQL_ROOT_PASSWORD: 'er0s1ntl'
     ports:
