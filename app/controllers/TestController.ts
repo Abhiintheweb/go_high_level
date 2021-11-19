@@ -3,12 +3,14 @@
 import { Request, Response } from 'express';
 
 
-
+import testService from '../services/TestService';
 
 export class IndexController{
+    
 
-    public Test(req:Request,res:Response){
-        res.json({"response":"Get Api"})
+    public async Test(req:Request,res:Response){
+        let x= await testService.test(123)
+        res.json({"response":x})
     }
 
     public Test2(req:Request,res:Response){

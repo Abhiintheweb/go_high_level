@@ -1,0 +1,26 @@
+{
+   "type": "mysql",
+   "host": "127.0.0.1",
+   "port": 3103,
+   "username": "root",
+   "password": "er0s1ntl",
+   "database": "go_high",
+   "synchronize": true,
+   "logging": false,
+   "entities": [
+      "app/db/entity/**/*.ts"
+   ],
+   "migrations": [
+      "migration/*.js"
+   ],
+   "subscribers": [
+      "app/db/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "app/db/entity",
+      "migrationsDir": "app/db/migration",
+      "subscribersDir": "app/db/subscriber"
+   },
+   "migrationsTableName": "custom_migration_table"
+  
+}
