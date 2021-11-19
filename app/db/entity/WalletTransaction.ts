@@ -26,5 +26,4 @@ export class WalletTransaction {
 
     @UpdateDateColumn({name:'updated_at'})
     "updatedAt"?: Date;
-
 }

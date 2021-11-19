@@ -20,4 +20,11 @@ export class WalletTransactionController{
         }
         
     }
+
+    public async Get(req:Request,res:Response){
+        var wallet_id = req.query.wallet_id
+        let wallet_trasaction = await walletTransction.allWalletTransactions(wallet_id)
+        res.send({"response":wallet_trasaction})
+
+    }
 }

@@ -9,12 +9,13 @@ export class WalletController{
     
 
     public async Get(req:Request,res:Response){
-        // let x= await testService.test(123)
-        res.json({"response":'x'})
+        
+        let wallets = await walletService.getAllWallets()
+        res.json({"data":wallets})
     }
 
     public async Post(req:Request,res:Response){
-        await walletService.setupWallet('s')
-        res.send({"response":"Post Api"})
+        let wallet = await walletService.setupWallet(req.body)
+        res.json({"response":wallet})
     }
 }

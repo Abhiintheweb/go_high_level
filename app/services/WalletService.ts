@@ -1,6 +1,7 @@
 
 import { getRepository } from "typeorm";
 import {Wallet} from "../db/entity/Wallet";
+import walletTransction from '../services/WalletTransactionService';
 
 class WalletService{
 
@@ -8,15 +9,24 @@ class WalletService{
         return await getRepository(Wallet).find()
     }
 
-    public async setupWallet(req){
-        
-        let wallet = new Wallet()
-        wallet.useId = 1
+    public async setupWallet(req:any){
+        var wallet = new Wallet()
+        wallet.useId = req.userId
         wallet.isActive= true
         wallet.totalAmount= 10
-        return await getRepository(Wallet).save(wallet)
+        console.log(req)
+        wallet = await getRepository(Wallet).save(wallet)
+        
+        await walletTransction.captureWalletTranscation(
+            'CREDIT', wallet.totalAmount,wallet.id, wallet.useId)
+
+        return wallet
         
     }
+
+    public async getAllWallets(){
+        return await getRepository(Wallet).find()
+    } 
 }
 
 

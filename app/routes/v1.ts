@@ -25,7 +25,9 @@ export class Routes {
 
         app.route('/v1/wallet-transaction')
         .post(this.WalletTransactionController.Post)
-        
+
+        app.route('/v1/wallet-transaction')
+        .get(this.WalletTransactionController.Get)
 
     }
 }
