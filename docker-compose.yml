@@ -22,11 +22,14 @@ services:
       - my-db:/var/lib/mysql
   web:
       build: .
+      depends_on:
+        - db
       volumes:
         - ./src/:/src/
       ports:
         - "3000:3000"
-        
+      
+
 # Names our volume
 volumes:
   my-db:
