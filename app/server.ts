@@ -6,7 +6,7 @@ import { createConnection } from "typeorm";
 createConnection({
     type: "mysql",
     host: "127.0.0.1",
-    port: 3306,
+    port: 3103,
     username: "root",
     password: "er0s1ntl1",
     database: "go_high",
