@@ -8,7 +8,7 @@ createConnection({
     host: "0.0.0.0",
     port: 3103,
     username: "root",
-    password: "er0s1ntl1",
+    password: "er0s1ntl",
     database: "go_high",
     entities: [
       __dirname+'/db/entity/Wallet.js',
