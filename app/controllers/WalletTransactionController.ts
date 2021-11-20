@@ -1,7 +1,7 @@
 
 
 import { Request, Response } from 'express';
-import walletTransction from '../../app/services/WalletTransactionService'
+import walletTransction from '../services/WalletTransactionService'
 
 export class WalletTransactionController{
     

@@ -1,6 +1,6 @@
 
 import {Wallet} from '../../app/db/entity/Wallet'
-import { IWalletData } from '../../app/interfaces/WalletData'
+import { IWalletData } from '../../app/interfaces/walletData'
 
 export const wallet = (walletTrasctionData:IWalletData) =>{
     let walletTras = new Wallet()

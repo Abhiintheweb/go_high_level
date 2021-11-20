@@ -1,8 +1,7 @@
-
-import { Wallet } from '../../app/db/entity/Wallet'
-import {WalletTransaction} from '../../app/db/entity/WalletTransaction'
-import { WalletError } from '../../app/errors/WalletErrors'
-import { IWalletTransaction } from '../../app/interfaces/walletTrasaction'
+import { Wallet } from "../db/entity/Wallet"
+import { WalletTransaction } from "../db/entity/WalletTransaction"
+import { WalletError } from "../errors/WalletErrors"
+import { IWalletTransaction } from "../interfaces/walletTrasaction"
 
 export const walletTrasaction = (walletTrasctionData:IWalletTransaction, walletData:Wallet) =>{
    
