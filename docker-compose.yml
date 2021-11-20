@@ -1,11 +1,6 @@
 version: '3.3'
 services:
-  web:
-      build: .
-      volumes:
-        - ./src/:/src/
-      ports:
-        - "3000:3000"
+  
   db:
     image: mysql:5.7
     restart: always
@@ -25,6 +20,13 @@ services:
       # Where our data will be persisted
     volumes:
       - my-db:/var/lib/mysql
+  web:
+      build: .
+      volumes:
+        - ./src/:/src/
+      ports:
+        - "3000:3000"
+        
 # Names our volume
 volumes:
   my-db:
