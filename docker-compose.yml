@@ -4,6 +4,7 @@ services:
   db:
     image: mysql:5.7
     restart: always
+    network_mode: host
     environment:
       MYSQL_DATABASE: 'db'
       # Password for root access
@@ -19,6 +20,7 @@ services:
       - my-db:/var/lib/mysql
   web:
       build: .
+      network_mode: host
       depends_on:
         - db
       volumes:
