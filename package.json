@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm test",
     "build": "tsc --build",
-    "dev-start": "babel-watch build/server.js",
+    "dev-start": "nodemon build/server.js",
     "tsc": "tsc",
     "typeorm": "tsc -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config ./app/db/index.ts",
     "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",
@@ -26,6 +26,7 @@
     "express": "^4.16.4",
     "moment": "^2.24.0",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.15",
     "package.json": "^2.0.1",
     "request": "^2.88.0",
     "typeorm": "^0.2.38",
