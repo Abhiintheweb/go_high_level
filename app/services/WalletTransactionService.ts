@@ -1,12 +1,11 @@
 
 import { getConnection, getManager, getRepository } from "typeorm";
-import {WalletTransaction} from "../db/entity/WalletTransaction";
-import {IWalletTransaction} from "../interfaces/walletTrasaction";
-import {WalletError} from '../errors/WalletErrors'
-import { walletTrasaction } from "../utils/WalletTrasactionUtils";
-import { Wallet } from "../db/entity/Wallet";
 import { ParsedQs } from "qs";
-import { LargeNumberLike } from "crypto";
+import { WalletTransaction } from "../db/entity/WalletTransaction";
+import { Wallet } from "../db/entity/Wallet";
+import { WalletError } from "../errors/WalletErrors";
+import { IWalletTransaction } from "../interfaces/walletTrasaction";
+import { walletTrasaction } from "../utils/WalletTrasactionUtils";
 
 class WalletTransactionService{
 
@@ -56,7 +55,7 @@ class WalletTransactionService{
         var walletDataObj = w_tra[0]
         var walletTrasObj = w_tra[1]
         let w_trasaction =  await this.walletTransaction(walletDataObj, walletTrasObj)
-        return true 
+        return w_trasaction 
     }
 
     public async allWalletTransactions(wallateID ){

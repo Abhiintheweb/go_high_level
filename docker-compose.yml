@@ -1,0 +1,34 @@
+version: '3.3'
+services:
+  
+  db:
+    image: mysql:5.7
+    restart: always
+    network_mode: host
+    environment:
+      - MYSQL_ROOT_PASSWORD=admin
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3103:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3103'
+      # Where our data will be persisted
+    volumes:
+      - my-db1:/var/lib/mysql
+  web:
+      build: .
+      network_mode: host
+      depends_on:
+        - db
+      volumes:
+        - ./src/:/src/
+      ports:
+        - "3002:3000"
+      expose:
+        - '3002'
+      
+
+# Names our volume
+volumes:
+  my-db1:
