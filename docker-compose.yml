@@ -6,7 +6,7 @@ services:
     restart: always
     network_mode: host
     environment:
-      MYSQL_ROOT_PASSWORD: 'root'
+      - MYSQL_ROOT_PASSWORD=admin
     ports:
       # <Port exposed> : < MySQL Port running inside container>
       - '3103:3306'
