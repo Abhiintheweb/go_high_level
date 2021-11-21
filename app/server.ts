@@ -6,9 +6,9 @@ import { createConnection } from "typeorm";
 createConnection({
     type: "mysql",
     host: "172.17.0.1",
-    port: 3103,
+    port: 3310,
     username: "root",
-    password: "er0s1ntl",
+    password: "admin",
     database: "go_high",
     entities: [
       __dirname+'/db/entity/Wallet.js',
