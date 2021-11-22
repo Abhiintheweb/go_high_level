@@ -2,6 +2,7 @@
 import { getRepository } from "typeorm";
 import {Wallet} from "../db/entity/Wallet";
 import walletTransction from '../services/WalletTransactionService';
+import userService from '../services/UserService';
 
 class WalletService{
 
@@ -10,6 +11,8 @@ class WalletService{
     }
 
     public async setupWallet(req:any){
+
+        let user = await userService.getUserById(req.user_id)
         var wallet = new Wallet()
         wallet.useId = req.userId
         wallet.isActive= true

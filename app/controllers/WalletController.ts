@@ -15,7 +15,14 @@ export class WalletController{
     }
 
     public async Post(req:Request,res:Response){
-        let wallet = await walletService.setupWallet(req.body)
-        res.json({"response":wallet})
+        try {
+            let wallet = await walletService.setupWallet(req.body)
+            res.json({"data":wallet})
+        } catch (error) {
+            res.json(error.status_code|| 500).send({"error":error.message})
+        }
+
+
+        
     }
 }

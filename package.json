@@ -6,7 +6,7 @@
   "scripts": {
     "test": "npm test",
     "build": "tsc --build",
-    "dev-start": "nodemon build/server.js",
+    "dev-start": "babel-watch build/server.js",
     "tsc": "tsc",
     "typeorm": "tsc -r tsconfig-paths/register ./node_modules/typeorm/cli.js --config ./app/db/index.ts",
     "typeorm:migration:generate": "npm run typeorm -- migration:generate -n",

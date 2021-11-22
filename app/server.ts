@@ -2,13 +2,18 @@ import app from './app';
 import * as https from 'https';
 const PORT = 3000;
 import { createConnection } from "typeorm";
-
+// type: "mysql",
+// host: "172.17.0.1",
+// port: 3310,
+// username: "root",
+// password: "er0s1ntl",
+// database: "go_high",
 createConnection({
     type: "mysql",
-    host: "172.17.0.1",
-    port: 3310,
+    host: "127.0.0.1",
+    port: 3103,
     username: "root",
-    password: "admin",
+    password: "er0s1ntl",
     database: "go_high",
     entities: [
       __dirname+'/db/entity/Wallet.js',
