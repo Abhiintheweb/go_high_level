@@ -45,6 +45,16 @@ npm run dev-start
 
 ## Api Endpoints
 
+Get All Users
+```sh
+curl --location --request GET '65.1.136.121:3000/v1/user'
+```
+
+Create Dummy User
+```sh
+curl --location --request POST '65.1.136.121:3000/v1/user'
+```
+
 
 Get All wallets
 ```sh
