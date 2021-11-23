@@ -4,7 +4,7 @@
 -- https://tableplus.com/
 --
 -- Database: go_high
--- Generation Time: 2021-11-21 13:08:39.2320
+-- Generation Time: 2021-11-23 13:18:45.7870
 -- -------------------------------------------------------------
 
 
@@ -18,26 +18,17 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
-DROP TABLE IF EXISTS `user`;
-CREATE TABLE `user` (
-  `age` int(11) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
-
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `is_active` tinyint(4) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL,
-  `updated_at` datetime NOT NULL,
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   `date_of_birth` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `wallet`;
 CREATE TABLE `wallet` (
@@ -49,7 +40,7 @@ CREATE TABLE `wallet` (
   `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`id`),
   UNIQUE KEY `IDX_72548a47ac4a996cd254b08252` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=latin1;
 
 DROP TABLE IF EXISTS `wallet_transaction`;
 CREATE TABLE `wallet_transaction` (
@@ -62,22 +53,29 @@ CREATE TABLE `wallet_transaction` (
   `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
-INSERT INTO `user` (`age`, `first_name`, `last_name`, `id`) VALUES
-(1, '1wewe', 'ewe', 10),
-(10, 'test', 'test2', 11),
-(10, 'test', 'test2', 12),
-(10, 'test', 'test2', 13),
-(10, 'test', 'test2', 14),
-(10, 'test', 'test2', 15),
-(10, 'test', 'test2', 16);
+INSERT INTO `users` (`id`, `name`, `is_active`, `password`, `created_at`, `updated_at`, `date_of_birth`) VALUES
+(1, 'Test', 1, '', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', '1991-02-01 05:30:00'),
+(2, 'Test', 1, '', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', '1991-02-01 05:30:00'),
+(3, 'Test', 1, '', '0000-00-00 00:00:00.000000', '0000-00-00 00:00:00.000000', '1991-02-01 05:30:00'),
+(4, 'Test', 1, '', '2021-11-22 19:01:48.122135', '2021-11-22 19:01:48.122135', '1991-02-01 05:30:00'),
+(5, 'Test', 1, '23', '2021-11-22 19:02:48.870358', '2021-11-22 19:02:48.870358', '1991-02-01 05:30:00'),
+(6, 'Test', 1, '', '2021-11-22 19:05:16.872041', '2021-11-22 19:05:16.872041', '1991-02-01 05:30:00'),
+(7, 'Test', 1, '', '2021-11-23 07:46:39.015560', '2021-11-23 07:46:39.015560', '1991-02-01 05:30:00'),
+(8, 'Test', 1, '', '2021-11-23 07:47:23.086681', '2021-11-23 07:47:23.086681', '1991-02-01 05:30:00'),
+(9, 'Test', 1, '', '2021-11-23 07:47:26.646382', '2021-11-23 07:47:26.646382', '1991-02-01 05:30:00');
 
 INSERT INTO `wallet` (`is_active`, `updated_at`, `id`, `user_id`, `total_amount`, `created_at`) VALUES
 (1, '2021-11-19 05:36:37.184980', 7, 0, 10, '2021-11-19 05:36:37.184980'),
 (1, '2021-11-19 05:37:51.171642', 10, 13, 10, '2021-11-19 05:37:51.171642'),
 (1, '2021-11-19 05:52:49.000000', 11, 14, 500, '2021-11-19 05:37:58.388496'),
-(1, '2021-11-21 07:37:03.857274', 13, 11, 10, '2021-11-21 07:37:03.857274');
+(1, '2021-11-21 07:37:03.857274', 13, 11, 10, '2021-11-21 07:37:03.857274'),
+(1, '2021-11-22 19:05:32.425261', 19, 6, 10, '2021-11-22 19:05:32.425261'),
+(1, '2021-11-22 19:14:26.641252', 24, 7, 10, '2021-11-22 19:14:26.641252'),
+(1, '2021-11-22 19:14:35.285255', 25, 999, 10, '2021-11-22 19:14:35.285255'),
+(1, '2021-11-22 19:20:48.562799', 26, 99, 10, '2021-11-22 19:20:48.562799'),
+(1, '2021-11-22 19:21:32.105690', 28, 923, 10, '2021-11-22 19:21:32.105690');
 
 INSERT INTO `wallet_transaction` (`is_active`, `id`, `user_id`, `wallet_id`, `amount`, `transaction_type`, `created_at`, `updated_at`) VALUES
 (0, 23, 1, 1, 10, 'DEBIT', '2021-11-09 00:30:32.850120', '2021-11-09 00:30:32.877226'),
@@ -96,7 +94,12 @@ INSERT INTO `wallet_transaction` (`is_active`, `id`, `user_id`, `wallet_id`, `am
 (0, 36, 14, 11, 100, 'CREDIT', '2021-11-19 05:49:33.561971', '2021-11-19 05:49:33.561971'),
 (0, 37, 14, 11, 100, 'CREDIT', '2021-11-19 05:50:11.487826', '2021-11-19 05:50:11.487826'),
 (0, 38, 14, 11, 100, 'CREDIT', '2021-11-19 05:52:49.286127', '2021-11-19 05:52:49.286127'),
-(0, 39, 11, 13, 10, 'CREDIT', '2021-11-21 07:37:03.913958', '2021-11-21 07:37:03.913958');
+(0, 39, 11, 13, 10, 'CREDIT', '2021-11-21 07:37:03.913958', '2021-11-21 07:37:03.913958'),
+(0, 40, 6, 19, 10, 'CREDIT', '2021-11-22 19:05:32.453558', '2021-11-22 19:05:32.453558'),
+(0, 41, 7, 24, 10, 'CREDIT', '2021-11-22 19:14:26.677055', '2021-11-22 19:14:26.677055'),
+(0, 42, 999, 25, 10, 'CREDIT', '2021-11-22 19:14:35.305090', '2021-11-22 19:14:35.305090'),
+(0, 43, 99, 26, 10, 'CREDIT', '2021-11-22 19:20:48.586625', '2021-11-22 19:20:48.586625'),
+(0, 44, 923, 28, 10, 'CREDIT', '2021-11-22 19:21:32.135027', '2021-11-22 19:21:32.135027');
 
 
 

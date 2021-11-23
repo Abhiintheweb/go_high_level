@@ -9,6 +9,7 @@ class UserService{
         let u = new User()
         u.name= 'Test'
         u.isActive=true
+        u.password="sdadsdw233221"
         u.dateOfBirth = new Date("1991-02-01")
         return await getRepository(User).save(u)
     }
