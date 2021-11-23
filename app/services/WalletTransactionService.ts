@@ -94,6 +94,7 @@ class WalletTransactionService{
             walletTrans.useId=userId
             walletTrans.walletId=walletId
             walletTrans.transactionType=transactionType
+            walletTrans.isActive = true
 
             return await getRepository(WalletTransaction).save(walletTrans)
 
