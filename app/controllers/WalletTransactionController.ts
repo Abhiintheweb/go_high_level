@@ -13,7 +13,7 @@ export class WalletTransactionController{
 
         } catch (error) {
             
-            res.json(error.status_code|| 500).send({"error":error.message})
+            res.status(error.status_code|| 500).json({"error":error.message})
         }
         
     }
