@@ -10,6 +10,7 @@ import { createConnection } from "typeorm";
 // username: "root",
 // password: "er0s1ntl",
 // database: "go_high",
+
 createConnection({
   type: "mysql",
   host: "172.17.0.1",

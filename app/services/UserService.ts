@@ -22,7 +22,7 @@ class UserService{
     public async getUserById(userId:number){
         let user =  await getRepository(User).find({id:userId, isActive:true})
         if (user.length < 1){
-            throw Error('Invalid UserId')
+            throw  Error('Invalid UserId')
         }
         return user
        

@@ -11,8 +11,7 @@ class WalletService{
     }
 
     public async setupWallet(req:any){
-
-        let user = await userService.getUserById(req.user_id)
+        let user = await userService.getUserById(req.userId)
         var wallet = new Wallet()
         wallet.useId = req.userId
         wallet.isActive= true
