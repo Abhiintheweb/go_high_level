@@ -47,24 +47,24 @@ npm run dev-start
 
 Get All Users
 ```sh
-curl --location --request GET '65.1.136.121:3000/v1/user'
+curl --location --request GET 'http://65.2.130.112/v1/user'
 ```
 
 Create Dummy User
 ```sh
-curl --location --request POST '65.1.136.121:3000/v1/user'
+curl --location --request POST 'http://65.2.130.112/v1/user'
 ```
 
 
 Get All wallets
 ```sh
-curl --location --request GET '65.1.136.121:3000/v1/wallet'
+curl --location --request GET 'http://65.2.130.112/v1/wallet'
 ```
 
 Wallet Setup
 
 ```sh
-curl --location --request POST '65.1.136.121:3000/v1/wallet-setup' \
+curl --location --request POST 'http://65.2.130.112/v1/wallet-setup' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "userId": 22
@@ -74,7 +74,7 @@ curl --location --request POST '65.1.136.121:3000/v1/wallet-setup' \
 Wallet Trasaction
 
 ```sh
-curl --location --request POST '65.1.136.121:3000/v1/wallet-transaction' \
+curl --location --request POST 'http://65.2.130.112/v1/wallet-transaction' \
 --header 'Content-Type: application/json' \
 --data-raw '{
 
@@ -87,7 +87,7 @@ curl --location --request POST '65.1.136.121:3000/v1/wallet-transaction' \
 Wallet Trasaction History
 
 ```sh
-curl --location --request GET '65.1.136.121:3000/v1/wallet-transaction?wallet_id=11'
+curl --location --request GET 'http://65.2.130.112/v1/wallet-transaction?wallet_id=11'
 ```
 
 ## Database 
