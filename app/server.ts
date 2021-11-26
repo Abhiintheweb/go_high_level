@@ -13,8 +13,8 @@ import { createConnection } from "typeorm";
 
 createConnection({
   type: "mysql",
-  host: "172.17.0.1",
-  port: 3310,
+  host: "127.0.0.1",
+  port: 3103,
   username: "root",
   password: "admin",
   database: "go_high",
