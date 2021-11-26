@@ -16,7 +16,7 @@ services:
       # Where our data will be persisted
     volumes:
       - my-db1:/var/lib/mysql
-  web:
+  # web:
       build: .
       network_mode: host
       depends_on:
