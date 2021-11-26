@@ -17,16 +17,16 @@ services:
     volumes:
       - my-db1:/var/lib/mysql
   # web:
-      build: .
-      network_mode: host
-      depends_on:
-        - db
-      volumes:
-        - ./src/:/src/
-      ports:
-        - "3002:3000"
-      expose:
-        - '3002'
+      # build: .
+      # network_mode: host
+      # depends_on:
+      #   - db
+      # volumes:
+      #   - ./src/:/src/
+      # ports:
+      #   - "3002:3000"
+      # expose:
+      #   - '3002'
       
 
 # Names our volume
